@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SimForge — Character Generator</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main class="app">
+
+        <!-- HEADER -->
+        <header class="topbar">
+
+            <div class="logo">
+                <div class="logo-diamond">◆</div>
+
+                <div>
+                    <strong>SIMFORGE</strong>
+                    <span>CHARACTER GENERATOR</span>
+                </div>
+            </div>
+
+            <div class="top-actions">
+
+                <button class="icon-button" title="Ajuda">
+                    ?
+                </button>
+
+                <button class="icon-button" title="Configurações">
+                    ⚙
+                </button>
+
+            </div>
+
+        </header>
+
+
+        <!-- MAIN -->
+        <div class="workspace">
+
+
+            <!-- SIDE MENU -->
+            <aside class="sidebar">
+
+                <p class="menu-title">
+                    PERSONALIZAÇÃO
+                </p>
+
+                <button class="menu-item active" data-section="body">
+                    <span>🧍</span>
+                    Corpo
+                </button>
+
+                <button class="menu-item" data-section="face">
+                    <span>👤</span>
+                    Rosto
+                </button>
+
+                <button class="menu-item" data-section="hair">
+                    <span>💇</span>
+                    Cabelo
+                </button>
+
+                <button class="menu-item" data-section="personality">
+                    <span>✨</span>
+                    Personalidade
+                </button>
+
+                <div class="menu-line"></div>
+
+                <p class="menu-title">
+                    SEU SIM
+                </p>
+
+                <div class="mini-profile">
+
+                    <div class="mini-avatar">
+                        <div class="mini-face"></div>
+                    </div>
+
+                    <div>
+                        <strong id="miniName">
+                            Alex Morgan
+                        </strong>
+
+                        <span>
+                            Jovem adulto
+                        </span>
+                    </div>
+
+                </div>
+
+            </aside>
+
+
+            <!-- CHARACTER -->
+            <section class="character-area">
+
+                <div class="stage-decoration decoration-one"></div>
+                <div class="stage-decoration decoration-two"></div>
+
+                <div class="stage">
+
+                    <div class="plumbob">
+                        <div></div>
+                    </div>
+
+
+                    <button class="stage-arrow left">
+                        ‹
+                    </button>
+
+
+                    <div class="sim" id="sim">
+
+                        <div class="hair" id="hair"></div>
+
+                        <div class="head" id="head">
+
+                            <div class="ear left-ear"></div>
+                            <div class="ear right-ear"></div>
+
+                            <div class="eye left-eye"></div>
+                            <div class="eye right-eye"></div>
+
+                            <div class="nose"></div>
+
+                            <div class="mouth"></div>
+
+                        </div>
+
+
+                        <div class="neck" id="neck"></div>
+
+                        <div class="body" id="body"></div>
+
+                        <div class="arm left-arm" id="leftArm"></div>
+                        <div class="arm right-arm" id="rightArm"></div>
+
+                        <div class="hand left-hand" id="leftHand"></div>
+                        <div class="hand right-hand" id="rightHand"></div>
+
+                        <div class="legs">
+
+                            <div class="leg"></div>
+                            <div class="leg"></div>
+
+                        </div>
+
+                    </div>
+
+
+                    <button class="stage-arrow right">
+                        ›
+                    </button>
+
+
+                    <div class="stage-info">
+
+                        <span>SEU PERSONAGEM</span>
+
+                        <strong id="stageName">
+                            Alex Morgan
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- EDITOR -->
+            <aside class="editor">
+
+                <div class="editor-header">
+
+                    <div>
+                        <small>CREATE A SIM</small>
+
+                        <h1 id="editorTitle">
+                            Corpo
+                        </h1>
+                    </div>
+
+                    <button
+                        class="dice-button"
+                        id="randomButton"
+                        title="Randomizar"
+                    >
+                        🎲
+                    </button>
+
+                </div>
+
+
+                <!-- BODY -->
+                <div
+                    class="panel active-panel"
+                    data-panel="body"
+                >
+
+                    <div class="panel-title">
+                        <strong>Tipo de corpo</strong>
+
+                        <span>
+                            Escolha a silhueta do seu personagem
+                        </span>
+                    </div>
+
+
+                    <div class="body-grid">
+
+                        <button
+                            class="choice selected"
+                            data-body="classic"
+                        >
+                            <div class="body-preview classic-preview"></div>
+                            <span>Clássico</span>
+                        </button>
+
+                        <button
+                            class="choice"
+                            data-body="athletic"
+                        >
+                            <div class="body-preview athletic-preview"></div>
+                            <span>Atlético</span>
+                        </button>
+
+                        <button
+                            class="choice"
+                            data-body="slim"
+                        >
+                            <div class="body-preview slim-preview"></div>
+                            <span>Delicado</span>
+                        </button>
+
+                        <button
+                            class="choice"
+                            data-body="strong"
+                        >
+                            <div class="body-preview strong-preview"></div>
+                            <span>Robusto</span>
+                        </button>
+
+                    </div>
+
+
+                    <div class="panel-title space-top">
+
+                        <strong>Tom de pele</strong>
+
+                        <span>
+                            Personalize a aparência do seu Sim
+                        </span>
+
+                    </div>
+
+
+                    <div class="skin-grid">
+
+                        <button class="skin selected" data-skin="#f7d4b7"></button>
+                        <button class="skin" data-skin="#edbd96"></button>
+                        <button class="skin" data-skin="#d99a70"></button>
+                        <button class="skin" data-skin="#bd7652"></button>
+                        <button class="skin" data-skin="#a05c43"></button>
+                        <button class="skin" data-skin="#81462f"></button>
+                        <button class="skin" data-skin="#603628"></button>
+                        <button class="skin" data-skin="#3d251f"></button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- FACE -->
+                <div
+                    class="panel"
+                    data-panel="face"
+                >
+
+                    <div class="panel-title">
+
+                        <strong>Olhos</strong>
+
+                        <span>
+                            Escolha a cor dos olhos
+                        </span>
+
+                    </div>
+
+
+                    <div class="eye-grid">
+
+                        <button class="eye-choice selected" data-eyes="#405d70">
+                            <span></span>
+                            Azul
+                        </button>
+
+                        <button class="eye-choice" data-eyes="#654a32">
+                            <span></span>
+                            Castanho
+                        </button>
+
+                        <button class="eye-choice" data-eyes="#4d704b">
+                            <span></span>
+                            Verde
+                        </button>
+
+                        <button class="eye-choice" data-eyes="#202c35">
+                            <span></span>
+                            Escuro
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- HAIR -->
+                <div
+                    class="panel"
+                    data-panel="hair"
+                >
+
+                    <div class="panel-title">
+
+                        <strong>Penteado</strong>
+
+                        <span>
+                            Escolha o estilo do cabelo
+                        </span>
+
+                    </div>
+
+
+                    <div class="hair-grid">
+
+                        <button class="hair-choice selected" data-hair="short">
+                            <div class="hair-preview short-preview"></div>
+                            Curto
+                        </button>
+
+                        <button class="hair-choice" data-hair="long">
+                            <div class="hair-preview long-preview"></div>
+                            Longo
+                        </button>
+
+                        <button class="hair-choice" data-hair="curly">
+                            <div class="hair-preview curly-preview"></div>
+                            Cacheado
+                        </button>
+
+                        <button class="hair-choice" data-hair="modern">
+                            <div class="hair-preview modern-preview"></div>
+                            Moderno
+                        </button>
+
+                    </div>
+
+
+                    <div class="panel-title space-top">
+
+                        <strong>Cor do cabelo</strong>
+
+                    </div>
+
+
+                    <div class="hair-colors">
+
+                        <button class="hair-color selected" data-hair-color="#3c2924"></button>
+                        <button class="hair-color" data-hair-color="#171717"></button>
+                        <button class="hair-color" data-hair-color="#7b4d2d"></button>
+                        <button class="hair-color" data-hair-color="#b77945"></button>
+                        <button class="hair-color" data-hair-color="#c7b07a"></button>
+                        <button class="hair-color" data-hair-color="#8c3340"></button>
+                        <button class="hair-color" data-hair-color="#473b78"></button>
+                        <button class="hair-color" data-hair-color="#d75f89"></button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PERSONALITY -->
+                <div
+                    class="panel"
+                    data-panel="personality"
+                >
+
+                    <div class="panel-title">
+
+                        <strong>Personalidade</strong>
+
+                        <span>
+                            Descubra quem é o seu Sim
+                        </span>
+
+                    </div>
+
+
+                    <div class="personality-card">
+
+                        <div class="personality-icon">
+                            ✨
+                        </div>
+
+                        <div>
+
+                            <strong id="traitName">
+                                Criativo
+                            </strong>
+
+                            <span id="traitDescription">
+                                Adora imaginar, inventar e criar coisas novas.
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <button
+                        class="generate-trait"
+                        id="traitButton"
+                    >
+                        ✨ Sortear personalidade
+                    </button>
+
+                </div>
+
+
+                <!-- FOOTER EDITOR -->
+                <div class="editor-footer">
+
+                    <div class="current-info">
+
+                        <span>
+                            PERSONAGEM ATUAL
+                        </span>
+
+                        <strong id="currentName">
+                            Alex Morgan
+                        </strong>
+
+                    </div>
+
+                    <button
+                        class="generate-button"
+                        id="generateButton"
+                    >
+                        🎲
+                        Gerar Sim
+                    </button>
+
+                </div>
+
+            </aside>
+
+        </div>
+
+
+        <!-- MOBILE/BOTTOM -->
+        <footer class="bottom-bar">
+
+            <span>
+                SimForge • Character Generator
+            </span>
+
+            <button id="generateBottom">
+                Gerar personagem
+            </button>
+
+        </footer>
+
+    </main>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
